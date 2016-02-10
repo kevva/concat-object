@@ -2,6 +2,8 @@
 
 > Concatenate object property values into arrays
 
+Useful for creating form data objects that could easily be turned into query strings.
+
 
 ## Install
 
@@ -13,10 +15,14 @@ $ npm install --save concat-object
 ## Usage
 
 ```js
+const querystring = require('querystring');
 const concatObject = require('concat-object');
 
 concatObject({a: 'foo'}, {a: 'bar', b: 'unicorn'}, {b: ['foo']});
 //=> {a: ['foo', 'bar'], b: ['unicorn', ['foo']]}
+
+querystring.stringify(concatObject({a: 'foo'}, {a: 'bar'}));
+//=> 'a=foo&a=bar'
 ```
 
 
