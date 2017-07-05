@@ -1,19 +1,14 @@
 'use strict';
-
 module.exports = function () {
-	var src;
-	var obj = {};
+	// TODO: Use rest parameter when targeting Node.js 6
+	return Array.from(arguments).reduce((obj, x) => {
+		const o = Object(x);
 
-	for (var s = 0; s < arguments.length; s++) {
-		src = Object(arguments[s]);
-
-		for (var key in src) {
-			if (Object.prototype.hasOwnProperty.call(src, key)) {
-				obj[key] = obj[key] || [];
-				obj[key].push(src[key]);
-			}
+		for (const key of Object.keys(o)) {
+			obj[key] = obj[key] || [];
+			obj[key].push(o[key]);
 		}
-	}
 
-	return obj;
+		return obj;
+	}, {});
 };

@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from '.';
 
 test(t => {
 	t.deepEqual(m({a: 'foo'}, {a: 'bar'}, {b: 'foo'}), {a: ['foo', 'bar'], b: ['foo']});

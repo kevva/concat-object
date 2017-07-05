@@ -8,7 +8,7 @@ Useful for creating form data objects that could easily be turned into query str
 ## Install
 
 ```
-$ npm install --save concat-object
+$ npm install concat-object
 ```
 
 
